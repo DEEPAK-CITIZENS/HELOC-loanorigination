@@ -1,0 +1,9 @@
+me/anichakra/poc/pilot/heloc/cosigner/service/CosignerQueryService.class
+me/anichakra/poc/pilot/heloc/cosigner/web/CosignerCommandController.class
+me/anichakra/poc/pilot/heloc/cosigner/HelocCosignerServiceApplication.class
+me/anichakra/poc/pilot/heloc/cosigner/service/impl/DefaultCosignerQueryService.class
+me/anichakra/poc/pilot/heloc/cosigner/service/impl/DefaultCosignerCommandService.class
+me/anichakra/poc/pilot/heloc/cosigner/service/CosignerCommandService.class
+me/anichakra/poc/pilot/heloc/cosigner/web/CosignerQueryController.class
+me/anichakra/poc/pilot/heloc/cosigner/repo/CosignerRepository.class
+me/anichakra/poc/pilot/heloc/cosigner/domain/Cosigner.class

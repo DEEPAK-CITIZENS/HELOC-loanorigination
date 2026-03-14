@@ -1,0 +1,13 @@
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/repo/ChatMessageRepository.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/HelocCommunicationServiceApplication.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/repo/FollowUpReminderRepository.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/service/impl/DefaultCommunicationCommandService.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/service/impl/DefaultCommunicationQueryService.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/domain/ChatMessage.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/service/CommunicationCommandService.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/service/CommunicationQueryService.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/web/CommunicationCommandController.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/web/CommunicationQueryController.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/domain/FollowUpReminder.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/repo/NotificationRepository.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-communication-service/src/main/java/me/anichakra/poc/pilot/heloc/communication/domain/Notification.java

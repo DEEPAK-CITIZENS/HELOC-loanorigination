@@ -1,0 +1,10 @@
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-document-service/src/main/java/me/anichakra/poc/pilot/heloc/document/web/DocumentController.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-document-service/src/main/java/me/anichakra/poc/pilot/heloc/document/service/impl/DefaultDocumentQueryService.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-document-service/src/main/java/me/anichakra/poc/pilot/heloc/document/repo/DocumentRepository.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-document-service/src/main/java/me/anichakra/poc/pilot/heloc/document/service/DocumentQueryService.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-document-service/src/main/java/me/anichakra/poc/pilot/heloc/document/service/DocumentCommandService.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-document-service/src/main/java/me/anichakra/poc/pilot/heloc/document/service/impl/DefaultDocumentCommandService.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-document-service/src/main/java/me/anichakra/poc/pilot/heloc/document/HelocDocumentServiceApplication.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-document-service/src/main/java/me/anichakra/poc/pilot/heloc/document/domain/Document.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-document-service/src/main/java/me/anichakra/poc/pilot/heloc/document/web/DocumentQueryController.java
+/home/ubuntu/repos/HELOC-loan-origination/pilot-service/heloc-document-service/src/main/java/me/anichakra/poc/pilot/heloc/document/domain/OcrResult.java

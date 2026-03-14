@@ -1,0 +1,91 @@
+Configutation:
+  name: Default
+ 
+  Properties:
+    Property:
+      name: log-path
+      value: "/var/log/heloc/avm"
+ 
+  Appenders:
+    Console:
+      name: Console
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+ 
+    RollingFile:
+      - name: ApplicationLog
+        fileName: ${log-path}/application.log
+        filePattern: "${log-path}/archive/application.log.%d{yyyy-MM-dd-hh-mm}.gz"
+        PatternLayout:
+          pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 10 MB
+        DefaultRollOverStrategy:
+          max: 30
+      - name: InstrumentationLog
+        fileName: ${log-path}/instrumentation.log
+        filePattern: "${log-path}/archive/instrumentation.log.%d{yyyy-MM-dd-hh-mm}.gz"
+        PatternLayout:
+          pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 10 MB
+        DefaultRollOverStrategy:
+          max: 300
+      - name: InstrumentationAws
+        fileName: ${log-path}/aws.log
+        filePattern: "logs/archive/aws.log.%d{yyyy-MM-dd-hh-mm}.gz"
+        PatternLayout:
+          pattern: "[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"
+        Policies:
+          SizeBasedTriggeringPolicy:
+            size: 10 MB
+        DefaultRollOverStrategy:
+          max: 30
+          
+  Loggers:
+      Root:
+        level: debug
+        AppenderRef:
+          - ref: Console
+      Logger:
+        - name: me.anichakra.poc.pilot.heloc.avm
+          additivity: false
+          level: debug
+          AppenderRef:
+            - ref: Console
+              level: info
+            - ref: ApplicationLog
+              level: debug
+        - name: com.zaxxer.hikari
+          additivity: false
+          level: error
+          AppenderRef:
+            - ref: Console
+              level: error
+            - ref: ApplicationLog
+              level: debug
+        - name: INSTRUMENTATION_LOG
+          additivity: false
+          level: INFO
+          AppenderRef:
+            - ref: Console
+              level: info
+            - ref: InstrumentationLog
+              level: info
+        - name: INSTRUMENTATION_AWSSNS
+          additivity: false
+          level: INFO
+          AppenderRef:
+            - ref: Console
+              level: info
+            - ref: InstrumentationAws
+              level: info
+        - name: INSTRUMENTATION_TRACING
+          additivity: false
+          level: INFO
+          AppenderRef:
+            - ref: Console
+              level: info

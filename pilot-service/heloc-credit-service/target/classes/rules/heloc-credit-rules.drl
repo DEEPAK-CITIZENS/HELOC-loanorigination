@@ -1,0 +1,26 @@
+global me.anichakra.poc.pilot.heloc.credit.domain.CreditDecision decision;
+dialect "mvel"
+
+rule "HELOC Eligible"
+    when
+        report:me.anichakra.poc.pilot.heloc.credit.domain.CreditReport(creditScore >= 680)
+    then
+        decision.setDecision("APPROVED");
+        decision.setConditions("Standard approval");
+end
+
+rule "HELOC Conditional"
+    when
+        report:me.anichakra.poc.pilot.heloc.credit.domain.CreditReport(creditScore >= 620 && creditScore < 680)
+    then
+        decision.setDecision("CONDITIONAL");
+        decision.setConditions("Additional documentation required");
+end
+
+rule "HELOC Declined"
+    when
+        report:me.anichakra.poc.pilot.heloc.credit.domain.CreditReport(creditScore < 620)
+    then
+        decision.setDecision("DECLINED");
+        decision.setConditions("Credit score below minimum threshold");
+end

@@ -1,0 +1,62 @@
+server:
+  port: ${PORT:9094}
+
+spring:
+  data:
+    mongodb:
+      host: ${MONGODB_HOST:localhost}
+      port: 27017
+      database: heloc-documents
+  aop:
+    auto: true
+    proxy-target-class: true
+
+instrumentation:
+  name: heloc-document-service
+  version: 1.0
+  environment: DEV
+  remote-address-header: X-Forwarded-For
+  user-header: X-USER
+  enabled: true
+  instance-id: 11
+  start-time: 14-Mar-2026
+  ignore-duration-in-millis: 20
+  handlers:
+    log:
+      layers:
+      - FILTER
+      - CONTROLLER
+      - SERVICE
+      - REPOSITORY
+      event-names: all
+      ignore-parameters: false
+      ignore-outcome: true
+      ignore-exception-stack: false
+      limited: false
+    new-relic:
+      event-names: none
+    aws-sns:
+      event-names: sourcing
+    tracing:
+      event-names: tracing
+      metrics:
+      - NAME
+      - VERSION
+      - INSTANCE_ID
+      - TRACE_ID
+      - ENVIRONMENT
+      - CORRELATION_ID
+      - USER_ID
+      - LOCAL_ADDRESS
+      - REMOTE_ADDRESS
+      - URI
+
+rest:
+  impl-class: me.anichakra.poc.pilot.framework.instrumentation.impl.RestTemplateImpl
+  consumers:
+    - name: ocr-processor
+      url: ${OCR_SERVICE_URL:http://localhost:9091/ocr/process}
+      secured: false
+      contentType: application/json
+      responseType: me.anichakra.poc.pilot.heloc.document.domain.OcrResult
+      method: POST
