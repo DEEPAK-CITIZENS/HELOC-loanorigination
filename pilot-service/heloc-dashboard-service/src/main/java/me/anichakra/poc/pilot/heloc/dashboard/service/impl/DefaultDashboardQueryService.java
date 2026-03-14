@@ -31,7 +31,7 @@ public class DefaultDashboardQueryService implements DashboardQueryService {
 	@Override
 	@Event(name = "tracing")
 	public List<DashboardMetric> getLoanVolume(String period) {
-		return dashboardMetricRepository.findByMetricName("loan_volume");
+		return dashboardMetricRepository.findByMetricNameAndPeriod("loan_volume", period);
 	}
 
 	@Override

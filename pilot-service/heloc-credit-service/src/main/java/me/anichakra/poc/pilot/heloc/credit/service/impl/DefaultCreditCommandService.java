@@ -71,10 +71,16 @@ public class DefaultCreditCommandService implements CreditCommandService {
 	public double calculateDTI(Long applicationId) {
 		Optional<CreditReport> reportOpt = creditReportRepository.findByApplicationId(applicationId);
 		if (reportOpt.isPresent() && reportOpt.get().getTradelines() != null) {
-			BigDecimal totalMonthlyDebt = reportOpt.get().getTradelines().stream()
+			CreditReport report = reportOpt.get();
+			BigDecimal totalMonthlyDebt = report.getTradelines().stream()
 					.map(t -> t.getMonthlyPayment() != null ? t.getMonthlyPayment() : BigDecimal.ZERO)
 					.reduce(BigDecimal.ZERO, BigDecimal::add);
-			return totalMonthlyDebt.doubleValue();
+			BigDecimal grossMonthlyIncome = report.getGrossMonthlyIncome() != null
+					? report.getGrossMonthlyIncome() : BigDecimal.ONE;
+			if (grossMonthlyIncome.compareTo(BigDecimal.ZERO) == 0) {
+				grossMonthlyIncome = BigDecimal.ONE;
+			}
+			return totalMonthlyDebt.divide(grossMonthlyIncome, 4, BigDecimal.ROUND_HALF_UP).doubleValue();
 		}
 		return 0.0;
 	}

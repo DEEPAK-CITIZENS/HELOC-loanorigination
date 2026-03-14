@@ -1,6 +1,7 @@
 package me.anichakra.poc.pilot.heloc.credit.domain;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class CreditReport implements Serializable {
 	private List<Tradeline> tradelines;
 
 	private Date pullDate;
+	private BigDecimal grossMonthlyIncome;
 
 	public Long getId() {
 		return id;
@@ -66,5 +68,13 @@ public class CreditReport implements Serializable {
 
 	public void setPullDate(Date pullDate) {
 		this.pullDate = pullDate;
+	}
+
+	public BigDecimal getGrossMonthlyIncome() {
+		return grossMonthlyIncome;
+	}
+
+	public void setGrossMonthlyIncome(BigDecimal grossMonthlyIncome) {
+		this.grossMonthlyIncome = grossMonthlyIncome;
 	}
 }

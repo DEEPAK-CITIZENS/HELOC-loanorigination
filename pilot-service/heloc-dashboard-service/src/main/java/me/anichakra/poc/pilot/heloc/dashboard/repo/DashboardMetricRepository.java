@@ -13,4 +13,6 @@ public interface DashboardMetricRepository extends JpaRepository<DashboardMetric
 	List<DashboardMetric> findByPeriod(String period);
 
 	List<DashboardMetric> findByMetricName(String metricName);
+
+	List<DashboardMetric> findByMetricNameAndPeriod(String metricName, String period);
 }

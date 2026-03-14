@@ -42,7 +42,8 @@ public class DefaultApplicationQueryService implements ApplicationQueryService {
 	@Event(name = "tracing")
 	public List<LoanApplication> searchApplications(String status) {
 		if (status != null) {
-			return applicationRepository.findAll();
+			ApplicationStatus applicationStatus = ApplicationStatus.valueOf(status.toUpperCase());
+			return applicationRepository.findByApplicationStatus(applicationStatus);
 		}
 		return applicationRepository.findAll();
 	}
