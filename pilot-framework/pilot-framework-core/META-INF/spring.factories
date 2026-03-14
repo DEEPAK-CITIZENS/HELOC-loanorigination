@@ -1,1 +1,0 @@
-org.springframework.beans.factory.config.BeanPostProcessor=me.anichakra.poc.pilot.framework.annotation.AnnotationProcessor
