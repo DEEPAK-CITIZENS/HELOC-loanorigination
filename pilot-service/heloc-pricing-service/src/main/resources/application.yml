@@ -6,10 +6,6 @@ spring:
     auto: true
     proxy-target-class: true
 
-rule:
-  file-path: ${RULE_FILE_PATH:rules/heloc-pricing-rules.xls}
-  template-class: me.anichakra.poc.pilot.heloc.pricing.rule.HelocPricingRuleTemplate
-  engine: OPENL_TABLETS_ORG
 
 instrumentation:
   name: heloc-pricing-service
