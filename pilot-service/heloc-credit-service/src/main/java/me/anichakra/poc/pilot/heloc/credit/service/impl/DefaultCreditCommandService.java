@@ -6,9 +6,6 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 
-import org.kie.api.runtime.KieContainer;
-import org.kie.api.runtime.KieSession;
-
 import me.anichakra.poc.pilot.framework.annotation.CommandService;
 import me.anichakra.poc.pilot.framework.annotation.Event;
 import me.anichakra.poc.pilot.framework.annotation.EventObject;
@@ -17,12 +14,13 @@ import me.anichakra.poc.pilot.heloc.credit.domain.CreditReport;
 import me.anichakra.poc.pilot.heloc.credit.repo.CreditDecisionRepository;
 import me.anichakra.poc.pilot.heloc.credit.repo.CreditReportRepository;
 import me.anichakra.poc.pilot.heloc.credit.service.CreditCommandService;
+import me.anichakra.poc.pilot.heloc.credit.service.CreditRuleEvaluator;
 
 @CommandService
 public class DefaultCreditCommandService implements CreditCommandService {
 
 	@Inject
-	private KieContainer kieContainer;
+	private CreditRuleEvaluator creditRuleEvaluator;
 
 	@Inject
 	private CreditReportRepository creditReportRepository;
@@ -48,16 +46,7 @@ public class DefaultCreditCommandService implements CreditCommandService {
 
 		if (reportOpt.isPresent()) {
 			CreditReport report = reportOpt.get();
-			try {
-				KieSession kieSession = kieContainer.newKieSession();
-				kieSession.setGlobal("decision", decision);
-				kieSession.insert(report);
-				kieSession.fireAllRules();
-				kieSession.dispose();
-			} catch (Exception e) {
-				decision.setDecision("CONDITIONAL");
-				decision.setConditions("Manual review required");
-			}
+			creditRuleEvaluator.evaluate(report, decision);
 		} else {
 			decision.setDecision("DECLINED");
 			decision.setConditions("No credit report found");
