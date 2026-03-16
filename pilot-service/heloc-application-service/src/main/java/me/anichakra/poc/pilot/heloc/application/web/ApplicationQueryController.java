@@ -24,6 +24,13 @@ public class ApplicationQueryController {
 	private ApplicationQueryService applicationQueryService;
 
 	@ResponseStatus(HttpStatus.OK)
+	@GetMapping
+	@ResponseBody
+	public List<LoanApplication> getAllApplications() {
+		return applicationQueryService.searchApplications(null);
+	}
+
+	@ResponseStatus(HttpStatus.OK)
 	@GetMapping("/{id}")
 	@ResponseBody
 	public LoanApplication getApplication(@PathVariable("id") Long id) {

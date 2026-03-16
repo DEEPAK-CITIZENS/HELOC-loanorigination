@@ -10,7 +10,6 @@
 	<packaging>pom</packaging>
 	<description>Pilot parent pom</description>
 	<modules>
-		<module>pilot-framework</module>
 		<module>pilot-service</module>
 	</modules>
 	<properties>
